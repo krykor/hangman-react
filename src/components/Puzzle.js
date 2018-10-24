@@ -6,21 +6,37 @@ class Puzzle extends Component {
 		super(props)
 		this.state = {
 			word: '',
-			remainingGuesses: 5
+			remainingGuesses: 5,
+			guessedLetters: ['a', 'e', 'o'],
+			puzzleState: ''
 		}
+	}
+
+	puzzle() {
+		let puzzle = ''
+		this.state.word.forEach(letter => {
+			if (this.state.guessedLetters.includes(letter) || letter === ' ') {
+				puzzle += letter
+			} else {
+				puzzle += '*'
+			}
+		})
+
+		this.setState({ puzzleState: puzzle })
 	}
 
 	async componentDidMount() {
 		const puzzleState = await getPuzzle('2')
-		this.setState({ word: puzzleState.toLowerCase() })
+		this.setState({ word: puzzleState.toLowerCase().split('') })
+		this.puzzle()
 	}
 
 	render() {
-		const { word } = this.state
+		const { puzzleState } = this.state
 		return (
 			<div className="App">
 				<header className="App-header">
-					<p>{word}</p>
+					<p>{puzzleState}</p>
 				</header>
 			</div>
 		)
