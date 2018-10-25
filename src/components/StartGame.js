@@ -14,7 +14,9 @@ class StartGame extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={this.startGame.bind(this)}>Reset game</button>
+				<button className="button" onClick={this.startGame.bind(this)}>
+					Reset game
+				</button>
 			</div>
 		)
 	}
