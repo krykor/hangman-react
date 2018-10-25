@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
-import getPuzzle from '../api/requests/requests'
+import Message from './Message'
+import StartGame from './StartGame'
 
 class Puzzle extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			word: '',
+		this.state = {}
+	}
+
+	getWord(word) {
+		this.setState({
+			word,
 			remainingGuesses: 5,
 			guessedLetters: [],
 			puzzleState: '',
 			status: 'playing'
-		}
+		})
+		this.puzzle()
 	}
 
 	puzzle() {
@@ -61,11 +67,7 @@ class Puzzle extends Component {
 		this.calculateStatus()
 	}
 
-	async componentDidMount() {
-		const puzzleState = await getPuzzle('2')
-		this.setState({ word: puzzleState.toLowerCase().split('') })
-		this.puzzle()
-
+	componentDidMount() {
 		window.addEventListener('keypress', e => {
 			const guess = String.fromCharCode(e.charCode)
 			this.makeGuess(guess)
@@ -78,6 +80,8 @@ class Puzzle extends Component {
 			<div className="App">
 				<header className="App-header">
 					<p>{puzzleState}</p>
+					<Message puzzle={this.state} />
+					<StartGame getWord={word => this.getWord(word)} />
 				</header>
 			</div>
 		)
