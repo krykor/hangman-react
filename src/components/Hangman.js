@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Message from './Message'
 import StartGame from './StartGame'
 import Puzzle from './Puzzle'
+import Alphabet from './Alphabet'
 
 class Hangman extends Component {
 	constructor(props) {
@@ -15,22 +16,10 @@ class Hangman extends Component {
 			remainingGuesses: 5,
 			guessedLetters: [],
 			puzzleState: '',
-			status: 'playing'
+			status: 'playing',
+			reset: true
 		})
 		this.puzzle()
-	}
-
-	puzzle() {
-		let puzzle = ''
-		this.state.word.forEach(letter => {
-			if (this.state.guessedLetters.includes(letter) || letter === ' ') {
-				puzzle += letter
-			} else {
-				puzzle += '*'
-			}
-		})
-
-		this.setState({ puzzleState: puzzle.split(' ') })
 	}
 
 	calculateStatus() {
@@ -56,16 +45,34 @@ class Hangman extends Component {
 			return
 		}
 
-		if (isUnique && isBadGuess) {
-			this.setState({ remainingGuesses: this.state.remainingGuesses - 1 })
-		}
-
 		if (isUnique) {
 			this.setState({ guessedLetters: [...this.state.guessedLetters, guess] })
 		}
 
+		if (isUnique && isBadGuess) {
+			this.setState({ remainingGuesses: this.state.remainingGuesses - 1 })
+		}
+
 		this.puzzle()
 		this.calculateStatus()
+	}
+
+	puzzle() {
+		let puzzle = ''
+		this.state.word.forEach(letter => {
+			if (this.state.guessedLetters.includes(letter) || letter === ' ') {
+				puzzle += letter
+			} else {
+				puzzle += '*'
+			}
+		})
+
+		this.setState({ puzzleState: puzzle.split(' ') })
+	}
+
+	chooseLetter = character => {
+		this.makeGuess(character)
+		this.setState({ reset: false })
 	}
 
 	componentDidMount() {
@@ -80,6 +87,10 @@ class Hangman extends Component {
 		return (
 			<div className="App">
 				<Puzzle puzzleState={puzzleState} />
+				<Alphabet
+					chooseLetter={character => this.chooseLetter(character)}
+					reset={this.state.reset}
+				/>
 				<Message puzzle={this.state} />
 				<StartGame getWord={word => this.getWord(word)} />
 			</div>

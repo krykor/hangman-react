@@ -36,6 +36,10 @@ span {
 	justify-content: center;
 	margin-bottom: 4.8rem;
 }
+.letters span {
+	border-bottom: none;
+	font-size: 1rem;
+}
 .button {
 	background: #7044a0;
 	border: none;
