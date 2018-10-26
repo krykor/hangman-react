@@ -29,7 +29,7 @@ class Puzzle extends Component {
 			}
 		})
 
-		this.setState({ puzzleState: puzzle.split('') })
+		this.setState({ puzzleState: puzzle.split(' ') })
 	}
 
 	calculateStatus() {
@@ -81,16 +81,13 @@ class Puzzle extends Component {
 				<header className="App-header">
 					<div className="puzzle">
 						{puzzleState &&
-							puzzleState.map(
-								(letter, index) =>
-									letter !== ' ' ? (
+							puzzleState.map((word, index) => (
+								<div className="word" key={index + `div`}>
+									{word.split('').map((letter, index) => (
 										<span key={index}>{letter}</span>
-									) : (
-										<span key={index} className="span-space">
-											{letter}
-										</span>
-									)
-							)}
+									))}
+								</div>
+							))}
 					</div>
 					<Message puzzle={this.state} />
 					<StartGame getWord={word => this.getWord(word)} />
