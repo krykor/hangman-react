@@ -1,13 +1,13 @@
 {
-  "main.css": "/hangman-react/static/css/main.c1745801.chunk.css",
-  "main.js": "/hangman-react/static/js/main.65563cc9.chunk.js",
-  "main.js.map": "/hangman-react/static/js/main.65563cc9.chunk.js.map",
+  "main.css": "/hangman-react/static/css/main.b44cb2b6.chunk.css",
+  "main.js": "/hangman-react/static/js/main.a0cd0d38.chunk.js",
+  "main.js.map": "/hangman-react/static/js/main.a0cd0d38.chunk.js.map",
   "static/js/1.ea131fde.chunk.js": "/hangman-react/static/js/1.ea131fde.chunk.js",
   "static/js/1.ea131fde.chunk.js.map": "/hangman-react/static/js/1.ea131fde.chunk.js.map",
   "runtime~main.js": "/hangman-react/static/js/runtime~main.3ef55a31.js",
   "runtime~main.js.map": "/hangman-react/static/js/runtime~main.3ef55a31.js.map",
-  "static/css/main.c1745801.chunk.css.map": "/hangman-react/static/css/main.c1745801.chunk.css.map",
+  "static/css/main.b44cb2b6.chunk.css.map": "/hangman-react/static/css/main.b44cb2b6.chunk.css.map",
   "index.html": "/hangman-react/index.html",
-  "precache-manifest.e134e2fc3c77a9e8959353dff3a0d857.js": "/hangman-react/precache-manifest.e134e2fc3c77a9e8959353dff3a0d857.js",
+  "precache-manifest.aca60e7a85ac4bef54f4f46bb8fcac58.js": "/hangman-react/precache-manifest.aca60e7a85ac4bef54f4f46bb8fcac58.js",
   "service-worker.js": "/hangman-react/service-worker.js"
 }
