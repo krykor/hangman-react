@@ -83,13 +83,14 @@ class Hangman extends Component {
 	}
 
 	render() {
-		const { puzzleState } = this.state
+		const { puzzleState, guessedLetters, reset } = this.state
 		return (
-			<div className="App">
+			<div>
 				<Puzzle puzzleState={puzzleState} />
 				<Alphabet
 					chooseLetter={character => this.chooseLetter(character)}
-					reset={this.state.reset}
+					reset={reset}
+					guessedLetters={guessedLetters}
 				/>
 				<Message puzzle={this.state} />
 				<StartGame getWord={word => this.getWord(word)} />

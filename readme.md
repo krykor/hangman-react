@@ -36,6 +36,12 @@ Aplication is created with:
 
 ## Features
 
+v 1.1
+
+- mark of selected letters
+
+v 1.0
+
 - guessing random words in English
 - guessing letters at the **touch** and on the **keyboard**
 - support for **mobile devices**
@@ -46,7 +52,7 @@ Aplication is created with:
 - design settings:
   - changing the number of random words
   - choosing a language
-- mark of selected letters
+- adding a category of words
 
 ## Inspiration
 
