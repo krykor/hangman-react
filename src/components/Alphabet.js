@@ -30,7 +30,15 @@ class Alphabet extends Component {
 		return (
 			<div className="letters">
 				{letters.map((letter, index) => (
-					<span key={`letter-${index}`} onClick={() => this.letterClick(letter)}>
+					<span
+						key={`letter-${index}`}
+						onClick={() => this.letterClick(letter)}
+						className={
+							this.props.guessedLetters && this.props.guessedLetters.includes(letter)
+								? 'selected-letter'
+								: 'unselected-letter'
+						}
+					>
 						{letter}
 					</span>
 				))}
